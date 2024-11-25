@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specimen - Maylis Gau</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <!-- meta description -->
+  <meta name="description" content="Portfolio de Maylis Gau, projet du specimen Seamus de Ibrahim Kaçtıoğlu.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+
+  <header class="header">
+    <!-- https://jenseign.com/le-h1-logo/ -->
+    <h1><a href="index.html"><img src="logo.svg" alt="Maylis Gau" width="64" height="64"></a></h1>
+
+    <nav class="header-nav">
+      <a href="about.html">about</a>
+      <a href="mailto:m.gau@esad-amiens.fr">contacter</a>
+      <a href="https://www.instagram.com/maylis.gau/" target="_blank">instagram</a>
+    </nav>
+  </header>
+
+
+
+  <div class="page-projet">
+    
+    <div class="description">
+      <div class="sticky">
+      <h2>Specimen de la typographie Seamus de Ibrahim Kaçtıoğlu</h2>
+      <p>Ce projet a pour but de présenter une typographie trouvée sur le site 205TF.</p>
+
+      <h3>Description</h3>
+      <p>
+      J'ai voulu représenter cette typographie large sur un petit format (A7) pour qu'elle puisse facilement être distribuée, qu'elle rentre dans nos poches. Tous les textes de ce spécimen viennent des chansons <i>Fine Line</i> et <i>From the dinning table</i>  de Harry Styles.
+      </p> 
+    </div>
+    </div>
+
+  
+    <div class="projet-image">
+      
+      <img  src="images/specimen/1.jpg" alt="Couverture">
+      <img src="images/specimen/2.jpg" alt="Toute la couverture">
+      <img src="images/specimen/3.jpg" alt="première page - étude du gris">
+      <img src="images/specimen/4.jpg" alt="lettres E et F">
+      <img src="images/specimen/9.jpg" alt="étude de gris - gris classique">
+      <img src="images/specimen/5.jpg" alt="étude de gris - colonnes">
+      <img src="images/specimen/5b.jpg" alt="étude de gris grand interlignage">
+      <img src="images/specimen/7.jpg" alt="etude de gris - interlettrage">
+      <img src="images/specimen/6.jpg" alt="étude de gris - interlignage et interlettrage">
+      <img src="images/specimen/10.jpg" alt="étude de forme - le rectangle dans les lettre B D E F H I K L M N P R T">
+      <img src="images/specimen/11.jpg" alt="étude de forme - le pont dans les lettres U N M">
+      <img src="images/specimen/11b.jpg" alt="détail de la lettre S et poster plié">
+      <img src="images/specimen/12.jpg" alt="détail d'ouverture">
+      <img src="images/specimen/13.jpg" alt="poster de présentation de tous les glyphes de la version gratuite">
+      <img src="images/specimen/14.jpg" alt="texte plus grand">
+      <img src="images/specimen/14b.jpg" alt="texte en moyen">
+      <img src="images/specimen/15.jpg" alt="toute la couverture">
+
+    </div>
+    
+  </div>
+
+
+  <script>
+
+    // Getion des couleurs aléatoires
+    const colorList = [
+      'rgb(170, 223, 215)', // Couleur 1
+      'rgb(255, 173, 195)',  // Couleur 2
+      'rgb(207, 235, 124)', // Couleur 3
+      'rgb(251, 249, 152)', // Couleur 4
+      'rgb(183, 147, 255)'
+    ];
+    
+    // Fonction pour choisir une couleur différente de la dernière utilisée
+    function getRandomColorWithoutLast() {
+        let lastColor = localStorage.getItem('lastUsedColor');
+        let filteredColors = colorList.filter(color => color !== lastColor);
+        const randomIndex = Math.floor(Math.random() * filteredColors.length);
+        const chosenColor = filteredColors[randomIndex];
+        localStorage.setItem('lastUsedColor', chosenColor);
+        return chosenColor;
+    }
+
+    // Sélection de la couleur aléatoire
+    const randomColor = getRandomColorWithoutLast();
+    const transparentColor = `rgba(${randomColor.slice(4, -1)}, 0.5)`; // Opacité 50%
+
+    // Appliquer la couleur à la colonne de gauche
+    const leftColumn = document.querySelector('.sticky');
+    leftColumn.style.backgroundColor = randomColor;
+
+    // Appliquer la couleur transparente à un élément séparé, si nécessaire
+    const separateTransparentElement = document.querySelector('.header');
+    separateTransparentElement.style.backgroundColor = transparentColor;
+
+        
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abécédaire des vilains - Maylis Gau</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <!-- meta description -->
+  <meta name="description" content="Portfolio de Maylis Gau, projet de l'abécédaire des vilains.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+
+  <header class="header">
+    <!-- https://jenseign.com/le-h1-logo/ -->
+    <h1><a href="index.html"><img src="logo.svg" alt="Maylis Gau" width="64" height="64"></a></h1>
+    <nav class="header-nav">
+      <a href="about.html">about</a>
+      <a href="mailto:m.gau@esad-amiens.fr">contacter</a>
+      <a href="https://www.instagram.com/maylis.gau/" target="_blank">instagram</a>
+    </nav>
+  </header>
+
+
+
+  <div class="page-projet">
+    
+    <div class="description">
+      <div class="sticky">
+      <h2>L'abécédaire des vilains</h2>
+      <p>Ce projet est en collaboration avec <a href=" https://lisadovergne.github.io/" target="_blank">Lisa Dovergne</a> et <a href="https://anneclairemichi.github.io/" target="_blank">Anne-Claire Michi</a>.</p>
+      <h3>Description</h3>
+      <p>Un abécédaire est un livre destiné aux enfants pour leur apprendre l'alphabet. Ici au lieu de l'apprendre avec des mots du quotidien ils les apprennent avec des mots péjoratifs qui définissent un vilain d'un film Disney</p>
+    </div>
+    </div>
+
+  
+    <div class="projet-image">
+      <img src="images/abc/cp.jpg" alt="couverture">
+      
+      <img src="images/abc/c.jpg" alt="lettre C - couard (capitaine crochet)">
+      <img src="images/abc/f.jpg" alt="lettre F - Foutriquet (prince hans)">
+
+      <img src="images/abc/m.jpg" alt="lettre M - Machiste (gaston)">
+      <img src="images/abc/n.jpg" alt="lettre N - Narcissisme (Reine Grimhilde)">
+      <img src="images/abc/p.jpg" alt="lettre P - Pointeur (Jafar)">
+
+      <img src="images/abc/q.jpg" alt="lettre Q - Quetard (ken)">
+      <img src="images/abc/s.jpg" alt="lettre S - Sequestrer (mère gothel)">
+      <img src="images/abc/u.jpg" alt="lettre U - Usurpateur (Yzma)">
+      <img src="images/abc/4c.jpg" alt="quatrième de couverture">
+      <img src="images/abc/1c.jpg" alt="Couverture">
+      
+    </div>
+    
+  </div>
+
+
+  <script>
+
+    // Getion des couleurs aléatoires
+    const colorList = [
+      'rgb(170, 223, 215)', // Couleur 1
+      'rgb(255, 173, 195)',  // Couleur 2
+      'rgb(207, 235, 124)', // Couleur 3
+      'rgb(251, 249, 152)', // Couleur 4
+      'rgb(183, 147, 255)'
+    ];
+    
+    // Fonction pour choisir une couleur différente de la dernière utilisée
+    function getRandomColorWithoutLast() {
+        let lastColor = localStorage.getItem('lastUsedColor');
+        let filteredColors = colorList.filter(color => color !== lastColor);
+        const randomIndex = Math.floor(Math.random() * filteredColors.length);
+        const chosenColor = filteredColors[randomIndex];
+        localStorage.setItem('lastUsedColor', chosenColor);
+        return chosenColor;
+    }
+
+    // Sélection de la couleur aléatoire
+    const randomColor = getRandomColorWithoutLast();
+    const transparentColor = `rgba(${randomColor.slice(4, -1)}, 0.5)`; // Opacité 50%
+
+    // Appliquer la couleur à la colonne de gauche
+    const leftColumn = document.querySelector('.sticky');
+    leftColumn.style.backgroundColor = randomColor;
+
+    // Appliquer la couleur transparente à un élément séparé, si nécessaire
+    const separateTransparentElement = document.querySelector('.header');
+    separateTransparentElement.style.backgroundColor = transparentColor;
+
+        
+  </script>
+
+
+</body>
+</html>

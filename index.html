@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Maylis Gau</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <!-- meta description -->
+  <meta name="description" content="Portfolio de Maylis Gau, étudiante en designe graphique.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+  <header class="header">
+    <!-- https://jenseign.com/le-h1-logo/ -->
+    <h1><a href="index.html"><img src="logo.svg" alt="Maylis Gau" width="50" height="50" class="logo"></a></h1>
+
+    <nav class="header-nav ">
+      <a href="about.html">about</a>
+      <a href="mailto:m.gau@esad-amiens.fr">contacter</a>
+      <a href="https://www.instagram.com/maylis.gau/" target="_blank">instagram</a>
+    </nav>
+  </header>
+
+
+  <div class="projets" >
+    <a href="coffret.html" class="projet treslarge opaque">
+      <img src="images/tania.jpg" alt="Coffret Tania Mouraud">
+      <!-- <h2>Coffret Tania Mouraud</h2> -->
+      <div class="overlay"></div>
+    </a>
+
+    <a href="revue.html" class="projet opaque">
+      <img src="images/revue.jpg" alt="Revue The One">
+      <!-- <h2>The One</h2> -->
+    </a>
+
+    <a href="dfpa.html" class="projet opaque">
+      <img src="images/dfpa.jpg" alt="Couverture Des Fleurs pour Algernon" class="autre">
+      <!-- <h2>Couverture du livre <i>Des fleurs pour Algernon</i></h2> -->
+    </a>
+
+    <a href="louis.html" class="projet opaque">
+      <img src="images/louis.jpg" alt="Couverture Louis Braille">
+      <!-- <h2>Couverture du livre <i>Louis Braille</i></h2> -->
+    </a>
+
+    <a href="max.html" class="projet opaque">
+      <img src="images/max.jpg" alt="Couverture Max">
+      <!-- <h2>Couverture du livre <i>Max</i></h2>  -->
+    </a>
+
+    <a href="abc.html" class="projet opaque" >
+      <img src="images/abc.jpg" alt="livre d'Abécédaire">
+      <!-- <h2>Abécédaire des vilains</h2> -->
+    </a>
+
+    <a href="cercle.html" class="projet opaque" >
+      <img src="images/cchrm.jpg" alt="cercle chromatique">
+      <!-- <h2>Recherches colorimétriques</h2> -->
+    </a>
+
+    <a href="lum.html" class="projet opaque" >
+      <img src="images/lum.jpg" alt="couverture livre de recherche de lumière">
+      <!-- <h2>Jeu de lumière</h2> -->
+    </a>
+
+    <a href="koko.html" class="projet large opaque" >
+      <img src="images/koko.jpg" alt="couverture livre kokophile">
+      <!-- <h2>Édition de la collection d'un kokophile</h2> -->
+    </a>
+
+    <a href="kokoa.html" class="projet opaque">
+      <img src="images/koko/affiche 2.jpg" alt="couverture livre kokophile">
+      <!-- <h2>Affiches de la collection d'un kokophile</h2> -->
+    </a>
+
+    <a href="pers.html" class="projet opaque" >
+      <img src="images/pers.jpg" alt="couverture livre du parallélépipède pyramide">
+      <!-- <h2>Apprendre à construire un parallélépipède pyramide</h2> -->
+    </a>
+
+    <a href="spcm.html" class="projet opaque" >
+      <img src="images/spcm.jpg" alt="couverture livre kokophile">
+      <!-- <h2>Specimen de la typographie Seamus de Ibrahim Kaçtıoğlu</h2> -->
+    </a>
+  </div>
+
+
+    <footer class="footer">
+      <p>© 2024 Maylis Gau</p>
+  </div>
+
+
+
+  <script>
+
+    // // Gestion de l'opacité des éléments de la grille
+    // const projets = document.querySelectorAll('.projet');
+    // projets.forEach(projet => {
+    //   projet.addEventListener('mouseover', () => {
+    //     projets.forEach(p => p.classList.add('unactive'));
+    //     projet.classList.remove('unactive');
+    //   });
+    //   projet.addEventListener('mouseout', () => {
+    //     projets.forEach(p => p.classList.remove('unactive'));
+    //   });
+    // });
+
+    
+    // Getion des couleurs aléatoires
+    const colorList = [
+      'rgb(170, 223, 215)', // Couleur 1
+      'rgb(255, 173, 195)',  // Couleur 2
+      'rgb(207, 235, 124)', // Couleur 3
+      'rgb(251, 249, 152)', // Couleur 4
+      'rgb(183, 147, 255)'
+    ];
+    
+    // Fonction pour choisir une couleur différente de la dernière utilisée
+    function getRandomColorWithoutLast() {
+      let lastColor = localStorage.getItem('lastUsedColor');
+      let filteredColors = colorList.filter(color => color !== lastColor);
+      const randomIndex = Math.floor(Math.random() * filteredColors.length);
+      const chosenColor = filteredColors[randomIndex];
+      localStorage.setItem('lastUsedColor', chosenColor);
+      return chosenColor;
+    }
+
+    // Sélection de la couleur aléatoire
+    const randomColor = getRandomColorWithoutLast();
+    const transparentColor = `rgba(${randomColor.slice(4, -1)}, 0.5)`; // Opacité 50%
+    
+    // Appliquer la couleur aux éléments de la grille
+    const gridItems = document.querySelectorAll('.projet');
+    gridItems.forEach(item => {
+      item.style.backgroundColor = randomColor;
+      item.addEventListener('mouseover', () => {
+         item.style.boxShadow = `0px 4px 15px ${randomColor}`;
+        });
+        item.addEventListener('mouseout', () => {
+          item.style.boxShadow = 'none';
+        });
+      });
+      
+      // Appliquer la couleur transparente à l'élément séparé
+      const separateTransparentElement = document.querySelector('.header');
+      separateTransparentElement.style.backgroundColor = transparentColor;
+        
+  </script>
+</body>
+</html>

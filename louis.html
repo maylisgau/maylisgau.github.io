@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Couverture - Maylis Gau</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <!-- meta description -->
+  <meta name="description" content="Portfolio de Maylis Gau, projet de couverture du livre Louis Braille de Margaret Davidson.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+
+  <header class="header">
+    <!-- https://jenseign.com/le-h1-logo/ -->
+    <h1><a href="index.html"><img src="logo.svg" alt="Maylis Gau" width="64" height="64"></a></h1>
+
+    <nav class="header-nav">
+      <a href="about.html">about</a>
+      <a href="mailto:m.gau@esad-amiens.fr">contacter</a>
+      <a href="https://www.instagram.com/maylis.gau/" target="_blank">instagram</a>
+    </nav>
+  </header>
+
+
+
+  <div class="page-projet">
+    
+    <div class="description">
+      <div class="sticky">
+      <h2>Couverture de <i>Louis Braille</i> de Margaret Davidson</h2>
+      <p>Ce projet est une propositioin de couverture pour attirer les lecteurs. </p>
+
+      <h3>Description</h3>
+      <p>
+        L'attention est portée sur le braille, un moyen d'écriture  inventé par Louis Braille pour les mal-voyants. La typographie Tiny5x3 de Jack Halten Fahnestock est mise en parallèle avec le braille. Les insères sont des jeux pour apprendre le braille.
+        </p>
+
+      <p>Pour trouver une autre couverture faite dans cet optique cliquez <a class="arg" href="max.html">ici</a></p>
+    </div>
+    </div>
+
+  
+    <div class="projet-image">
+      
+      <img src="images/louis/1.jpg" alt="Première de couverture">
+      <img src="images/louis/2.jpg" alt="couverture">
+      <img src="images/louis/3.jpg" alt="Quatrième de couverture">
+      <img src="images/louis/4.jpg" alt="Couverture et insères">
+      <img src="images/louis/6.jpg" alt="Titres des insères">
+      <img src="images/louis/7.jpg" alt="Dans les insères">
+
+    </div>
+    
+  </div>
+
+
+  <script>
+
+    // Getion des couleurs aléatoires
+    const colorList = [
+      'rgb(170, 223, 215)', // Couleur 1
+      'rgb(255, 173, 195)',  // Couleur 2
+      'rgb(207, 235, 124)', // Couleur 3
+      'rgb(251, 249, 152)', // Couleur 4
+      'rgb(183, 147, 255)'
+    ];
+    
+    // Fonction pour choisir une couleur différente de la dernière utilisée
+    function getRandomColorWithoutLast() {
+        let lastColor = localStorage.getItem('lastUsedColor');
+        let filteredColors = colorList.filter(color => color !== lastColor);
+        const randomIndex = Math.floor(Math.random() * filteredColors.length);
+        const chosenColor = filteredColors[randomIndex];
+        localStorage.setItem('lastUsedColor', chosenColor);
+        return chosenColor;
+    }
+
+    // Sélection de la couleur aléatoire
+    const randomColor = getRandomColorWithoutLast();
+    const transparentColor = `rgba(${randomColor.slice(4, -1)}, 0.5)`; // Opacité 50%
+
+    // Appliquer la couleur à la colonne de gauche
+    const leftColumn = document.querySelector('.sticky');
+    leftColumn.style.backgroundColor = randomColor;
+
+    // Appliquer la couleur transparente à un élément séparé, si nécessaire
+    const separateTransparentElement = document.querySelector('.header');
+    separateTransparentElement.style.backgroundColor = transparentColor;
+
+        
+  </script>
+
+
+</body>
+</html>

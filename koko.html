@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kokophile - Maylis Gau</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <!-- meta description -->
+  <meta name="description" content="Portfolio de Maylis Gau, projet collection kokophile.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+
+  <header class="header">
+    <!-- https://jenseign.com/le-h1-logo/ -->
+    <h1><a href="index.html"><img src="logo.svg" alt="Maylis Gau" width="64" height="64"></a></h1>
+
+    <nav class="header-nav">
+      <a href="about.html">about</a>
+      <a href="mailto:m.gau@esad-amiens.fr">contacter</a>
+      <a href="https://www.instagram.com/maylis.gau/" target="_blank">instagram</a>
+    </nav>
+  </header>
+
+
+
+  <div class="page-projet">
+    
+    <div class="description">
+      <div class="sticky">
+        <h2>Collection kokophile - édition</h2>
+        <p>Ce projet a pour but de présenter la collection d'un kokophile.</p>
+        <h3>Description</h3>
+        <p>Koko est un mot finnois qui signifie taille. Un kokophile est un donc un collectionneur d'objet qui respectent une certaine taille et pour ce projet il s'agit des objets de moins de quatre centimètres. Il y a ici un inventaire de plusieurs objets qui rentre dans cette consigne de taille.
+        </p>
+        <p>Pour trouver les affiches de cette collection cliquer <a href="kokoa.html">ici</a></p>
+      </div>
+    </div>
+
+  
+    <div class="projet-image">
+      
+      <img  src="images/koko/penche.jpg" alt="Couverture">
+      <img src="images/koko/penche2.jpg" alt="Dos">
+      <img src="images/koko/page1.jpg" alt="page d'introduction">
+      <img src="images/koko/page1b.jpg" alt="intérieur">
+      <img src="images/koko/page2.jpg" alt="intérieur">
+      <img src="images/koko/page2b.jpg" alt="intérieur">
+      <img src="images/koko/page3.jpg" alt="intérieur">
+      <img src="images/koko/page4.jpg" alt="intérieur">
+      <img src="images/koko/page5.jpg" alt="intérieur">
+      <img src="images/koko/page6.jpg" alt="intérieur">
+      <img src="images/koko/page8.jpg" alt="intérieur">
+      <img src="images/koko/P1120628.jpg" alt="Couverture entière">
+      <img src="images/koko/P1120629.jpg" alt="Dos">
+
+    </div>
+    
+  </div>
+
+
+  <script>
+
+    // Getion des couleurs aléatoires
+    const colorList = [
+      'rgb(170, 223, 215)', // Couleur 1
+      'rgb(255, 173, 195)',  // Couleur 2
+      'rgb(207, 235, 124)', // Couleur 3
+      'rgb(251, 249, 152)', // Couleur 4
+      'rgb(183, 147, 255)'
+    ];
+    
+    // Fonction pour choisir une couleur différente de la dernière utilisée
+    function getRandomColorWithoutLast() {
+        let lastColor = localStorage.getItem('lastUsedColor');
+        let filteredColors = colorList.filter(color => color !== lastColor);
+        const randomIndex = Math.floor(Math.random() * filteredColors.length);
+        const chosenColor = filteredColors[randomIndex];
+        localStorage.setItem('lastUsedColor', chosenColor);
+        return chosenColor;
+    }
+
+    // Sélection de la couleur aléatoire
+    const randomColor = getRandomColorWithoutLast();
+    const transparentColor = `rgba(${randomColor.slice(4, -1)}, 0.5)`; // Opacité 50%
+
+    // Appliquer la couleur à la colonne de gauche
+    const leftColumn = document.querySelector('.sticky');
+    leftColumn.style.backgroundColor = randomColor;
+
+    // Appliquer la couleur transparente à un élément séparé, si nécessaire
+    const separateTransparentElement = document.querySelector('.header');
+    separateTransparentElement.style.backgroundColor = transparentColor;
+
+        
+  </script>
+
+
+</body>
+</html>

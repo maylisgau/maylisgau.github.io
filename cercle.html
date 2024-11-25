@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorimétrie - Maylis Gau</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <!-- meta description -->
+  <meta name="description" content="Portfolio de Maylis Gau, projet de colorimétrie.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+
+  <header class="header">
+    <!-- https://jenseign.com/le-h1-logo/ -->
+    <h1><a href="index.html"><img src="logo.svg" alt="Maylis Gau" width="64" height="64"></a></h1>
+
+    <nav class="header-nav">
+      <a href="about.html">about</a>
+      <a href="mailto:m.gau@esad-amiens.fr">contacter</a>
+      <a href="https://www.instagram.com/maylis.gau/" target="_blank">instagram</a>
+    </nav>
+  </header>
+
+
+
+  <div class="page-projet">
+    
+    <div class="description">
+      <div class="sticky">
+      <h2>Colorimétrie</h2>
+      <p>Ce projet est une recherche sur la couleur.</p>
+      <h3>Description</h3>
+      <p>Ces faux carrés, tous de formats différents, sont une recherche colorimétrique pour découvrir la peinture. Dans ma recherche de composition rien n'est carré pour sortir du serieux qu'est la colorimétrie.</p>
+    </div>
+    </div>
+
+  
+    <div class="projet-image">
+      
+      <img src="images/carres/cr.jpg" alt="Cercle chromatique">
+      <img src="images/carres/rom.jpg" alt="Tons rompus">
+      <img src="images/carres/fc.jpg" alt="Couleurs froides et chaudes">
+      <img src="images/carres/lr.jpg" alt="Ton lavé et rabatus">
+      <img src="images/carres/ndg.jpg" alt="Nuances de gris">
+      
+
+    </div>
+    
+  </div>
+
+
+  <script>
+
+    // Getion des couleurs aléatoires
+    const colorList = [
+      'rgb(170, 223, 215)', // Couleur 1
+      'rgb(255, 173, 195)',  // Couleur 2
+      'rgb(207, 235, 124)', // Couleur 3
+      'rgb(251, 249, 152)', // Couleur 4
+      'rgb(183, 147, 255)'
+    ];
+    
+    // Fonction pour choisir une couleur différente de la dernière utilisée
+    function getRandomColorWithoutLast() {
+        let lastColor = localStorage.getItem('lastUsedColor');
+        let filteredColors = colorList.filter(color => color !== lastColor);
+        const randomIndex = Math.floor(Math.random() * filteredColors.length);
+        const chosenColor = filteredColors[randomIndex];
+        localStorage.setItem('lastUsedColor', chosenColor);
+        return chosenColor;
+    }
+
+    // Sélection de la couleur aléatoire
+    const randomColor = getRandomColorWithoutLast();
+    const transparentColor = `rgba(${randomColor.slice(4, -1)}, 0.5)`; // Opacité 50%
+
+    // Appliquer la couleur à la colonne de gauche
+    const leftColumn = document.querySelector('.sticky');
+    leftColumn.style.backgroundColor = randomColor;
+
+    // Appliquer la couleur transparente à un élément séparé, si nécessaire
+    const separateTransparentElement = document.querySelector('.header');
+    separateTransparentElement.style.backgroundColor = transparentColor;
+
+        
+  </script>
+
+
+</body>
+</html>
