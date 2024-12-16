@@ -112,6 +112,10 @@ a {
   font-style: italic;
 }
 
+.footer{
+  padding-left: 24px; 
+}
+
 /*mise en forme des projets dans l'index*/
 .projet{
   padding: 2px;
