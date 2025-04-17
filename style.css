@@ -7,6 +7,7 @@ body{
   margin: 0; /* pour éviter les marges par défaut du navigateur */
   line-height: 1.5; /* hauteur de ligne pour la lecture à l'écran*/
   font-size: 16px; /* taille de la police de base */
+  background-color: #ffffff;
 }
 
 img{
@@ -23,6 +24,8 @@ figure{
 
 a {
 font-style: italic;
+text-decoration: none;
+color: inherit;
 }
 
 .header{
@@ -79,30 +82,6 @@ text-decoration: none;
 font-style: italic;
 }
 
-
-
-@media (max-width: 700px) {
-.projets{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  /* grid-auto-rows: 200px; */
-  gap: 24px;
-  padding: 24px;
-  justify-content: center;
-}
-} 
-
-@media (min-width: 700px) {
-.projets{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 350px;
-  gap: 24px;
-  padding: 24px;
-  justify-content: center;
-}
-} 
-
 .intro a {
 color: #150015;
 text-decoration: none;
@@ -112,20 +91,155 @@ text-decoration: none;
 font-style: italic;
 }
 
+
+/* mise en forme des infos du bas */
 .footer{
-padding-left: 24px; 
+  padding-left: 24px; 
+  padding-right: 24px;
+  display: flex;
+  justify-content: space-between;
+  color: #150015;
+  align-items: center; 
+}
+  
+.footer a{
+  color: #150015;
+  text-decoration: none;
+}
+    
+.footer a:hover {
+  font-style: italic;
+}
+
+
+/* modification taille et écrans */
+@media (min-width: 768px){
+  .page-projet {
+    grid-template-columns: 2fr 4fr;
+  }
+
+  .sticky{
+    position: sticky;
+    top: 120px;
+    align-self: start;
+  }
+  .treslarge{
+    grid-column: span 3;
+  }
+
+  .projets{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-auto-rows: 400px;
+    gap: 24px;
+    padding: 24px;
+    justify-content: center;
+  }
+
+  .projet{
+    padding: 8px;
+  }
+}
+  
+@media (max-width: 768px) and (min-width: 700px){
+  .page-projet {
+      grid-template-columns: 1fr; 
+  }
+  .treslarge{
+    grid-column: span 3;
+  }
+  .projets{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-auto-rows: 400px;
+    gap: 24px;
+    padding: 24px;
+    justify-content: center;
+  }
+  
+  /* .text-content {
+      margin-bottom: 20px; 
+  } */
+} 
+
+@media (max-width: 700px) and (min-width: 400px) {
+  .page-projet {
+    grid-template-columns: 1fr; 
+  }
+  
+  .treslarge{
+    grid-column: span 3;
+  }
+
+  .projets{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 24px;
+    padding: 12px;
+    justify-content: center;
+    box-sizing: border-box;}
+
+  .projet{
+    padding: 2px;
+  }
+} 
+
+
+@media (max-width: 400px) {
+  .treslarge{
+    grid-column: span 2;
+    /* justify-content: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;*/
+  }
+      
+  .projet{
+    padding: 2px;}
+
+  .page-projet {
+    grid-template-columns: 1fr; 
+  }
+
+  .projets{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 18px;
+    padding: 12px;
+    justify-content: center;
+    box-sizing: border-box;}
+}
+
+@media (pointer: fine) {
+  .projet img {
+    transition: filter 0.3s ease; /* Transition douce pour le flou */
+    filter: blur(5px);} 
+   
+  a {
+    font-style: normal;}
+   
+  a:hover {
+    font-style: italic;}
+} 
+   
+@media (pointer: coarse) {
+  .footer a {
+    color: #ffffff;}
 }
 
 /*mise en forme des projets dans l'index*/
 .projet{
-padding: 2px;
 color:#150015;
 text-decoration: none;
-/* aspect-ratio: 8/9; */
 text-align: center;
 place-items: center;
-display: grid;
-transition: background-color 0.5s ease, box-shadow 0.5s ease;
 opacity: 1;
 transition: opacity 0.8s ease;
 overflow: hidden;
@@ -141,23 +255,12 @@ z-index: -1;
 /* transform: scale(1.1); */
 box-shadow: 0px 4px 15px; 
 }
-@media (pointer: fine) {
-.projet img {
-  transition: filter 0.3s ease; /* Transition douce pour le flou */
-  filter: blur(5px);
-}
-
-a {
-  font-style: normal;
-}
-}
 
 .projet img{
-/* margin-bottom: 12px; */
-justify-content: center;
-width: 100%;
-height: 100%;
-object-fit: cover;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .projet:hover img{
@@ -176,7 +279,7 @@ grid-row: span 1;
 justify-content: center;
 width: 100%;
 height: 100%;
-object-fit: cover;
+/* object-fit: cover; */
 overflow: hidden;
 display: flex;
 justify-content: center; 
@@ -184,7 +287,6 @@ align-items: center;
 }
 
 .treslarge{
-grid-column: span 3;
 grid-row: span 1;
 justify-content: center;
 width: 100%;
@@ -197,27 +299,10 @@ justify-content: center;
 align-items: center;
 }
 
-@media (max-width: 400px) {
-.treslarge{
-  grid-column: span 2;
-  grid-row: span 1;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
-  place-items: center;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-}
-}
-
 
 /* les projets */
 .page-projet{
 display: grid; 
-grid-template-columns: 2fr 4fr;
 gap: 24px;
 padding: 24px;
 justify-content: center;
@@ -242,23 +327,7 @@ margin-top: 8px; /* Pas d'espace avant */
 margin-bottom: 8px; /* Ajoute un espace après */
 }
 
-@media (min-width: 768px) {
-.sticky{
-  position: sticky;
-  top: 120px;
-  align-self: start;
-}
-}
 
-@media (max-width: 768px) {
-.page-projet {
-    grid-template-columns: 1fr; 
-}
-
-/* .text-content {
-    margin-bottom: 20px; 
-} */
-} 
 
 .description a{
 color: #150015;
@@ -268,25 +337,26 @@ text-decoration: none;
 .description a:hover {
 font-style: italic;}
 
-.projet-image{
-margin: 0;
-padding: 12px;
-/* align-self: flex-start; */
-position: relative;
-}
-
 .projet-image img{
-width: 100%;
-height: auto;
-max-height: 100vh; /* Limite la hauteur à celle de la fenêtre */
-object-fit: contain; /* S'assure que l'image est entièrement visible */
-}
+  width: 100%;
+  height: auto;
+  max-height: 100vh; /* Limite la hauteur à celle de la fenêtre */
+  object-fit: contain; /* S'assure que l'image est entièrement visible */
+  }
 
-.gridvideo {
-position: relative;
-width: 100%;
-height: auto;
-overflow: hidden;
+  .projet-image{
+    margin: 0;
+    padding: 12px;
+    /* align-self: flex-start; */
+    position: relative;
+  }
+
+
+  .gridvideo {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 /* Style de la vidéo */
@@ -296,6 +366,33 @@ height: auto;
 object-fit: cover; /* Assure que la vidéo couvre la cellule */
 }
 
+/* elever le flou */
+  .projett{
+  padding: 2px;
+  place-items: center;
+  /* display: grid; */
+  /* transition: background-color 0.5s ease, box-shadow 0.5s ease; */
+  overflow: hidden;
+  } 
+  
+  .projett:hover{
+  /* transform: scale(1.1); */
+  box-shadow: 0px 4px 15px; 
+  }
+
+  .projett img{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+    
+  .projett h2{
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    }
 
 /* cv  */
 .ligne2 {

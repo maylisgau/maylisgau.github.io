@@ -44,66 +44,32 @@
   
     <div class="projet-image">
       
-      <img src="images/pers/20241021173402_00024.jpg" alt="les couvertures">
-      <img src="images/pers/20241021173402_00004.jpg" alt="perspective cavalière de face">
-      <img src="images/pers/20241021173402_00005.jpg" alt="perspective cavalière de face">
-      <img src="images/pers/20241021173402_00007.jpg" alt="perspective cavalière de côté et introduction perspective axonométrique">
-      <img src="images/pers/20241021173402_00008.jpg" alt="perspective axonométrique cube">
-      <img src="images/pers/20241021173402_00009.jpg" alt="perspective axonométrique octaèdre">
-      <img src="images/pers/20241021173402_00010.jpg" alt="perspective axonométrique Parallélépidède pyramide">
-      <img src="images/pers/20241021173402_00011.jpg" alt="perspective axonométrique Parallélépidède pyramide">
-      <img src="images/pers/20241021173402_00012.jpg" alt="plan de sol et elevation">
-      <img src="images/pers/20241021173402_00013.jpg" alt="introduction perspective conique et explication tableau">
-      <img src="images/pers/20241021173402_00014.jpg" alt="tableau">
-      <img src="images/pers/20241021173402_00015.jpg" alt="tableau">
-      <img src="images/pers/20241021173402_00017.jpg" alt="tableau et mur des hauteurs">
-      <img src="images/pers/20241021173402_00018.jpg" alt="mur des hauteurs">
-      <img src="images/pers/20241021173402_00019.jpg" alt="mur des hauteurs">
-      <img src="images/pers/20241021173402_00020.jpg" alt="perspective conique">
-      <img src="images/pers/20241021173402_00021.jpg" alt="perspective conique">
-      <img src="images/pers/20241021173402_00022.jpg" alt="resultat final">
-      <img src="images/pers/20241021173402_00023.jpg" alt="quatrième de couverture ">
+      <img src="images/pers/1.jpg" alt="les couvertures">
+      <img src="images/pers/2.jpg" alt="perspective cavalière de face">
+      <img src="images/pers/3.jpg" alt="perspective cavalière de face">
+      <img src="images/pers/4.jpg" alt="perspective cavalière de côté et introduction perspective axonométrique">
+      <img src="images/pers/5.jpg" alt="perspective axonométrique cube">
+      <img src="images/pers/6.jpg" alt="perspective axonométrique octaèdre">
+      <img src="images/pers/7.jpg" alt="perspective axonométrique Parallélépidède pyramide">
+      <img src="images/pers/8.jpg" alt="perspective axonométrique Parallélépidède pyramide">
+      <img src="images/pers/9.jpg" alt="plan de sol et elevation">
+      <img src="images/pers/10.jpg" alt="introduction perspective conique et explication tableau">
+      <img src="images/pers/11.jpg" alt="tableau">
+      <img src="images/pers/12.jpg" alt="tableau">
+      <img src="images/pers/13.jpg" alt="tableau et mur des hauteurs">
+      <img src="images/pers/14.jpg" alt="mur des hauteurs">
+      <img src="images/pers/15.jpg" alt="mur des hauteurs">
+      <img src="images/pers/16.jpg" alt="perspective conique">
+      <img src="images/pers/17.jpg" alt="perspective conique">
+      <img src="images/pers/18.jpg" alt="resultat final">
+      <img src="images/pers/19.jpg" alt="quatrième de couverture ">
 
     </div>
     
   </div>
 
 
-  <script>
-
-    // Getion des couleurs aléatoires
-    const colorList = [
-      'rgb(170, 223, 215)', // Couleur 1
-      'rgb(255, 173, 195)',  // Couleur 2
-      'rgb(207, 235, 124)', // Couleur 3
-      'rgb(251, 249, 152)', // Couleur 4
-      'rgb(183, 147, 255)'
-    ];
-    
-    // Fonction pour choisir une couleur différente de la dernière utilisée
-    function getRandomColorWithoutLast() {
-        let lastColor = localStorage.getItem('lastUsedColor');
-        let filteredColors = colorList.filter(color => color !== lastColor);
-        const randomIndex = Math.floor(Math.random() * filteredColors.length);
-        const chosenColor = filteredColors[randomIndex];
-        localStorage.setItem('lastUsedColor', chosenColor);
-        return chosenColor;
-    }
-
-    // Sélection de la couleur aléatoire
-    const randomColor = getRandomColorWithoutLast();
-    const transparentColor = `rgba(${randomColor.slice(4, -1)}, 0.5)`; // Opacité 50%
-
-    // Appliquer la couleur à la colonne de gauche
-    const leftColumn = document.querySelector('.sticky');
-    leftColumn.style.backgroundColor = randomColor;
-
-    // Appliquer la couleur transparente à un élément séparé, si nécessaire
-    const separateTransparentElement = document.querySelector('.header');
-    separateTransparentElement.style.backgroundColor = transparentColor;
-
-        
-  </script>
+  <script src="scriptprojet.js"> </script>
 
 
 </body>

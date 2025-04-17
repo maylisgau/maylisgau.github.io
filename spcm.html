@@ -45,63 +45,26 @@
     <div class="projet-image">
       
       <img  src="images/specimen/1.jpg" alt="Couverture">
-      <img src="images/specimen/2.jpg" alt="Toute la couverture">
-      <img src="images/specimen/3.jpg" alt="première page - étude du gris">
-      <img src="images/specimen/4.jpg" alt="lettres E et F">
-      <img src="images/specimen/9.jpg" alt="étude de gris - gris classique">
-      <img src="images/specimen/5.jpg" alt="étude de gris - colonnes">
-      <img src="images/specimen/5b.jpg" alt="étude de gris grand interlignage">
-      <img src="images/specimen/7.jpg" alt="etude de gris - interlettrage">
-      <img src="images/specimen/6.jpg" alt="étude de gris - interlignage et interlettrage">
-      <img src="images/specimen/10.jpg" alt="étude de forme - le rectangle dans les lettre B D E F H I K L M N P R T">
-      <img src="images/specimen/11.jpg" alt="étude de forme - le pont dans les lettres U N M">
-      <img src="images/specimen/11b.jpg" alt="détail de la lettre S et poster plié">
-      <img src="images/specimen/12.jpg" alt="détail d'ouverture">
-      <img src="images/specimen/13.jpg" alt="poster de présentation de tous les glyphes de la version gratuite">
-      <img src="images/specimen/14.jpg" alt="texte plus grand">
-      <img src="images/specimen/14b.jpg" alt="texte en moyen">
-      <img src="images/specimen/15.jpg" alt="toute la couverture">
+      <img src="images/specimen/1b.jpg" alt="Toute la couverture">
+      <img src="images/specimen/2.jpg" alt="lettres E et F">
+      <img src="images/specimen/3.jpg" alt="étude de gris - gris classique">
+      <img src="images/specimen/4.jpg" alt="étude de gris - colonnes">
+      <img src="images/specimen/5.jpg" alt="étude de gris grand interlignage">
+      <img src="images/specimen/6.jpg" alt="etude de gris - interlettrage">
+      <img src="images/specimen/7.jpg" alt="étude de gris - interlignage et interlettrage">
+      <img src="images/specimen/8.jpg" alt="étude de forme - le rectangle dans les lettre B D E F H I K L M N P R T">
+      <img src="images/specimen/9.jpg" alt="étude de forme - le pont dans les lettres U N M">
+      <img src="images/specimen/10.jpg" alt="détail de la lettre S et poster plié">
+      <img src="images/specimen/11.jpg" alt="poster de présentation de tous les glyphes de la version gratuite">
+      <img src="images/specimen/12.jpg" alt="texte plus grand">
+      <img src="images/specimen/13.jpg" alt="texte en moyen">
 
     </div>
     
   </div>
 
 
-  <script>
-
-    // Getion des couleurs aléatoires
-    const colorList = [
-      'rgb(170, 223, 215)', // Couleur 1
-      'rgb(255, 173, 195)',  // Couleur 2
-      'rgb(207, 235, 124)', // Couleur 3
-      'rgb(251, 249, 152)', // Couleur 4
-      'rgb(183, 147, 255)'
-    ];
-    
-    // Fonction pour choisir une couleur différente de la dernière utilisée
-    function getRandomColorWithoutLast() {
-        let lastColor = localStorage.getItem('lastUsedColor');
-        let filteredColors = colorList.filter(color => color !== lastColor);
-        const randomIndex = Math.floor(Math.random() * filteredColors.length);
-        const chosenColor = filteredColors[randomIndex];
-        localStorage.setItem('lastUsedColor', chosenColor);
-        return chosenColor;
-    }
-
-    // Sélection de la couleur aléatoire
-    const randomColor = getRandomColorWithoutLast();
-    const transparentColor = `rgba(${randomColor.slice(4, -1)}, 0.5)`; // Opacité 50%
-
-    // Appliquer la couleur à la colonne de gauche
-    const leftColumn = document.querySelector('.sticky');
-    leftColumn.style.backgroundColor = randomColor;
-
-    // Appliquer la couleur transparente à un élément séparé, si nécessaire
-    const separateTransparentElement = document.querySelector('.header');
-    separateTransparentElement.style.backgroundColor = transparentColor;
-
-        
-  </script>
+  <script src="scriptprojet.js"> </script>
 
 
 </body>
