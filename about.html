@@ -38,19 +38,6 @@
 
   <script>
 
-    // // Gestion de l'opacité des éléments de la grille
-    // const projets = document.querySelectorAll('.projet');
-    // projets.forEach(projet => {
-    //   projet.addEventListener('mouseover', () => {
-    //     projets.forEach(p => p.classList.add('unactive'));
-    //     projet.classList.remove('unactive');
-    //   });
-    //   projet.addEventListener('mouseout', () => {
-    //     projets.forEach(p => p.classList.remove('unactive'));
-    //   });
-    // });
-
-    
     // Getion des couleurs aléatoires
     const colorList = [
       'rgb(170, 223, 215)', // Couleur 1
@@ -78,12 +65,6 @@
     const gridItems = document.querySelectorAll('.projet');
     gridItems.forEach(item => {
       item.style.backgroundColor = randomColor;
-      item.addEventListener('mouseover', () => {
-         item.style.boxShadow = `0px 4px 15px ${randomColor}`;
-        });
-        item.addEventListener('mouseout', () => {
-          item.style.boxShadow = 'none';
-        });
       });
       
       // Appliquer la couleur transparente à l'élément séparé
