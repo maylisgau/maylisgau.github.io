@@ -5,16 +5,20 @@
 
 @font-face {
   font-family: estrella;
-  src: url(font/Estrella-Early.otf) format("opentype");
+  src: url(font/EstrellaEarly.woff) format("woff");
+}
+
+@font-face {
   font-family: jetbrains;
   src: url(font/JetBrainsMono-Variable.ttf) format("opentype");
 }
 
+
 body {
   font-family: jetbrains;/* police de base */
   margin: 0;/* pour éviter les marges par défaut du navigateur */
-  line-height: 1.5;/* hauteur de ligne pour la lecture à l'écran*/
-  font-size: 16px;/* taille de la police de base */
+  line-height: 1;/* hauteur de ligne pour la lecture à l'écran*/
+  font-size: 14px;/* taille de la police de base */
   background-color: #ffffff;
 }
 
@@ -221,17 +225,22 @@ a {
   padding-bottom: 8px;
 }
 
+@font-face {
+  font-family: estrella;
+  src: url(font/Estrella-Early.woff) format("woff");
+}
 .description h2 {
   font-family: estrella;
   font-size: 54px;
   margin-top: -20px;
   margin-bottom: 16px;
+  line-height: 1;
 }
 
 .projet-image img {
   width: 100%;
   height: auto;
-  max-height: 100vh;
+  max-height: 80vh;
   object-fit: contain;
 }
 
